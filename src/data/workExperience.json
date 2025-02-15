@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Python Developer Intern",
+        "company": "NeuroNexus Innovations",
+        "location": "Remote",
+        "duration": "Dec 2023 - Feb 2024",
+        "highlights": [
+            "Improved code reliability and functionality through rigorous unit testing and debugging.",
+            "Designed and built user-centric, accessible interfaces, resulting in improved user engagement.",
+            "Streamlined project collaboration using Git for version control, reducing merge conflicts.",
+            "Contributed to automation of repetitive tasks, saving development time and improving workflow efficiency.",
+            "Conducted exploratory research on integrating Python frameworks with real-world applications."
+        ],
+        "company_link": "https://nninnovations.in/"
+    }
+]

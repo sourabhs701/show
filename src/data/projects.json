@@ -1,0 +1,57 @@
+[
+    {
+        "name": "MakeThumb.com",
+        "description": "AI-Powered Automation Tool to transform (resume → portfolio website)",
+        "image": "/projects/realmemories.png",
+        "tech_stack": [
+            "Node.js",
+            "React",
+            "AWS",
+            "Gemini AI",
+            "MongoDB",
+            "Express.js"
+        ],
+        "highlights": [
+            "Developed a PDF-to-JSON parser using Gemini Flash 1.5, reducing data parsing errors by 90%.",
+            "Set up a reliable infrastructure with AWS S3 for storage and Render for hosting, achieving 99.9% uptime.",
+            "Automated the process of converting resumes into portfolio websites, increasing efficiency by 70%.",
+            "Implemented user-facing features such as automated email notifications and progress tracking.",
+            "Conducted thorough testing to minimize bugs, reducing post-deployment issues by 95%."
+        ],
+        "link": "http://makethumb.com"
+    },
+    {
+        "name": "ChatWithThumb",
+        "description": "Real-time Chat Application",
+        "tech_stack": [
+            "Socket.IO",
+            "Node.js",
+            "React",
+            "MongoDB",
+            "Express.js"
+        ],
+        "highlights": [
+            "Built a real-time messaging platform with Socket.IO, ensuring smooth bidirectional communication.",
+            "Optimized WebSocket implementation, improving chat reliability and scalability by 30%.",
+            "Added features like typing indicators and read receipts, enhancing user interactivity by 40%.",
+            "Ensured uninterrupted service during peak usage by implementing server load balancing strategies."
+        ]
+    },
+    {
+        "name": "GitHorizon",
+        "description": "VS Code extension to visualize Git commit history",
+        "image": "/projects/realmemories.png",
+        "tech_stack": [
+            "VS Code API",
+            "JavaScript"
+        ],
+        "highlights": [
+            "Created a VS Code extension to visualize Git commit history directly within the editor.",
+            "Integrated seamlessly with VS Code’s interface for a smooth user experience.",
+            "Processed and displayed over 1,000+ commits from various repositories during testing.",
+            "Introduced timeline-based visualizations to simplify version history tracking, improving clarity by 50%.",
+            "Designed interactive tooltips and navigation aids to enhance developer productivity."
+        ],
+        "link": "https://marketplace.visualstudio.com/items?itemName=sourabhsoni.githorizon"
+    }
+]

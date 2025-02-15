@@ -1,0 +1,34 @@
+{
+    "Frontend": [
+        "React.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Shadcn UI",
+        "Next.js"
+    ],
+    "Backend": [
+        "Nodejs",
+        "Expressjs",
+        "Authentication & Authorization (JWT)",
+        "API Testing (Postman, Jest)",
+        "EC2",
+        "WebSocket"
+    ],
+    "Database": [
+        "MongoDB",
+        "MySQL",
+        "PostgreSQL",
+        "Redis (Caching)",
+        "S3 Bucket"
+    ],
+    "Services": [
+        "Lambda",
+        "Docker",
+        "Cloudflare Workers",
+        "Render",
+        "Netlify",
+        "GitPages",
+        "GitHub",
+        "OpenAI"
+    ]
+}
