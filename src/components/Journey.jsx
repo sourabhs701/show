@@ -98,9 +98,24 @@ export function Path() {
         },
 
     ]
+    const chronoTheme = theme.resolvedTheme === "dark"
+        ? {
+            primary: '#fff',
+            secondary: '#4B5563',
+            cardBgColor: '#1F2937',
+            titleColor: '#fff',
+            titleColorActive: '#9CA3AF',
+        }
+        : {
+            primary: '#374151',
+            secondary: '#9CA3AF',
+            cardBgColor: '#fff',
+            titleColor: '#374151',
+            titleColorActive: '#111827',
+        };
 
     return (
-        <section className="min-h-screen w-full mb-0 mt-20 relative">
+        <section className="min-h-screen w-full py-24 relative">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <LineShadowText
@@ -113,17 +128,28 @@ export function Path() {
                         Discover my journey through technology and innovation
                     </p>
                 </div>
-                <div className="w-full h-full">
+                <div className="w-full overflow-auto">
                     <Chrono
                         items={items}
                         mode="VERTICAL_ALTERNATING"
                         scrollable={{ scrollbar: true }}
                         disableNavOnKey
-                        disableToolbar
+                        enableBreakPoint
+                        responsiveBreakPoint={768}
+                        theme={chronoTheme}
+                        borderLessCards
+                        highlightCardsOnHover
+                        enableQuickJump
+                        cardWidth={400}
+                        slideShow
+                        slideItemDuration={4500}
+                        slideShowType="reveal"
+                        mediaSettings={{ align: 'center', fit: 'cover' }}
+                        timelinePointDimension={30}
+                        timelinePointShape="circle"
                     />
                 </div>
             </div>
         </section>
     );
-
-}
+};
