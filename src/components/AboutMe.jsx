@@ -166,22 +166,15 @@ export function AboutMe() {
                             {/* Gaming Card - Spans full width */}
                             <motion.a
                                 href="https://www.youtube.com/@carryonsrb3263"
-                                className="relative col-span-2 rounded-3xl shadow-lg h-[250px] shadow-gray-500/20 dark:shadow-gray-400/20 overflow-hidden bg-transparent border-0"
+                                className="relative col-span-2 rounded-3xl shadow-lg h-[200px] shadow-gray-500/20 dark:shadow-gray-400/20 overflow-hidden bg-transparent border-0"
                                 whileHover={{ scale: 1.02 }}
                             >
-                                <video
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
+                                <img
+                                    src="/gaming.gif"
+                                    alt="Gaming animation"
                                     className="absolute inset-0 w-full h-full object-cover"
-                                    style={{ objectFit: 'cover' }}
-                                    onLoadedMetadata={(e) => {
-                                        e.target.currentTime = 3.5;
-                                    }}
-                                >
-                                    <source src="/valorant.mp4" type="video/mp4" />
-                                </video>
+                                // style={{ objectFit: 'cover' }}
+                                />
                                 <div className="relative h-full p-6 transition-colors">
                                     <div className="flex items-center gap-4 text-white">
                                         <SiYoutube className="w-6 h-6" />
@@ -225,4 +218,20 @@ export function AboutMe() {
             </div>
         </section>
     );
-} 
+}
+
+
+
+{/* <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+    style={{ objectFit: 'cover' }}
+    onLoadedMetadata={(e) => {
+        e.target.currentTime = 3.5;
+    }}
+>
+    <source src="/gaming.gif" type="video/mp4" />
+</video> */}

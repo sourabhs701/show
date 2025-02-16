@@ -38,7 +38,7 @@ const App = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="h-screen w-screen flex flex-col items-center justify-center bg-background"
+        className="h-screen w-screen flex flex-col items-center justify-center bg-white dark:bg-gray-900"
       >
         <div className="relative w-52 h-52">
           <img
@@ -51,7 +51,7 @@ const App = () => {
           initial={{ width: 0 }}
           animate={{ width: "200px" }}
           transition={{ duration: 2, ease: "easeInOut" }}
-          className="h-1 bg-green-500 mt-4 rounded-full"
+          className="h-1 bg-[#9ED03E] mt-4 rounded-full"
         />
       </motion.div>
     );
@@ -65,7 +65,7 @@ const App = () => {
       />
       <main className="mx-auto overflow-hidden">
         <NavBar />
-        <div className="space-y-32 pb-32">
+        <div className="space-y-32">
           <Hero />
           <AboutMe />
           <Projects />

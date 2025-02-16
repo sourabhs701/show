@@ -115,7 +115,7 @@ const DiscussProject = () => {
                         duration={6}
                         delay={5}
                         size={400}
-                        className="from-transparent via-orange-600 dark:via-orange-500 to-transparent" 
+                        className="from-transparent via-orange-600 dark:via-orange-500 to-transparent"
                     />
                 </motion.div>
             </motion.div>

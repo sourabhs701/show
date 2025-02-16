@@ -22,7 +22,7 @@ export function SkillsCard() {
     const theme = useTheme();
     const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
     return (
-        <div className="space-y-24 container mx-auto mt-20 justify-center min-w-screen items-center">
+        <div className="h-screen container mx-auto  justify-center min-w-screen items-center">
 
             <div className="space-y-4 container mx-auto">
                 <div className="space-y-4 mb-16 container mx-auto">
@@ -43,7 +43,7 @@ export function SkillsCard() {
 
             <div className="grid grid-cols-1 md:grid-cols-[1.2fr,0.8fr] gap-20">
                 {/* Left Side: Skills Categories */}
-                <div className="space-y-8">
+                <div className="space-y-6">
                     {Object.entries(skillsData).map(([category, skills], index) => (
                         <motion.div
                             key={category}
@@ -80,7 +80,7 @@ export function SkillsCard() {
                 </div>
 
                 {/* Right Side: Tech Stack */}
-                <div className="space-y-8">
+                <div className="space-y-6">
                     <Card className="bg-transparent rounded-3xl overflow-hidden shadow-lg shadow-gray-500/20 dark:shadow-gray-400/20">
                         <CardContent className="p-6">
                             <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200">
