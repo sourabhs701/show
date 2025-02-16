@@ -8,10 +8,11 @@ import { Projects } from './components/Projects';
 import { AboutMe } from './components/AboutMe';
 import DiscussProject from './components/DiscussProject';
 import { Path } from './components/Journey';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from "framer-motion";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -22,7 +23,39 @@ const App = () => {
   useEffect(() => {
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = "smooth";
+
+    // Simulate loading of media assets
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Adjust time as needed
+
+    return () => clearTimeout(timer);
   }, []);
+
+  if (loading) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="h-screen w-screen flex flex-col items-center justify-center bg-background"
+      >
+        <div className="relative w-52 h-52">
+          <img
+            src="/frog.gif"
+            alt="Loading..."
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "200px" }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+          className="h-1 bg-green-500 mt-4 rounded-full"
+        />
+      </motion.div>
+    );
+  }
 
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
