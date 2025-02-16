@@ -65,28 +65,24 @@ const Icons = {
 const DATA = {
     navbar: [
         { href: "#", icon: HomeIcon, label: "Home" },
+        { href: "#contact", icon: MailIcon, label: "mail" },
     ],
     contact: {
         social: {
             GitHub: {
                 name: "GitHub",
-                url: "#",
+                url: "https://github.com/sourabhs701",
                 icon: Icons.github,
             },
             LinkedIn: {
                 name: "LinkedIn",
-                url: "#",
+                url: "https://www.linkedin.com/in/sourabhs701/",
                 icon: Icons.linkedin,
             },
             X: {
                 name: "X",
-                url: "#",
+                url: "https://x.com/SRB_FUNDs",
                 icon: Icons.x,
-            },
-            email: {
-                name: "Send Email",
-                url: "#",
-                icon: Icons.email,
             },
         },
     },
@@ -99,6 +95,13 @@ const NavBar = () => {
     useEffect(() => {
         return scrollY.onChange(() => setIsScrolled(scrollY.get() > 50));
     }, [scrollY]);
+
+    const handleHireClick = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <motion.div
@@ -118,6 +121,7 @@ const NavBar = () => {
                                 <TooltipTrigger asChild>
                                     <a
                                         href={item.href}
+                                        onClick={item.label === "Contact" ? handleHireClick : undefined}
                                         aria-label={item.label}
                                         className={cn(
                                             buttonVariants({ variant: "ghost", size: "icon" }),
@@ -141,6 +145,8 @@ const NavBar = () => {
                                     <a
                                         href={social.url}
                                         aria-label={social.name}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className={cn(
                                             buttonVariants({ variant: "ghost", size: "icon" }),
                                             "size-12 rounded-full",

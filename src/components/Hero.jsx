@@ -105,7 +105,7 @@ const Hero = () => {
 
 
                                         <img
-                                            src="/pfp.jpg"
+                                            src="/avatar.png"
                                             alt="Profile"
                                             className="w-64 h-64 object-cover"
                                         />

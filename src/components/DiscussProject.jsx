@@ -8,7 +8,7 @@ import { RetroGrid } from "@/components/magicui/retro-grid";
 
 import { BorderBeam } from "@/components/magicui/border-beam";
 
-const DiscussProject = () => {
+const DiscussProject = ({ id }) => {
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -25,6 +25,7 @@ const DiscussProject = () => {
     return (
         <section
             ref={sectionRef}
+            id={id}
             className="relative min-h-screen w-screen overflow-hidden flex items-center justify-center"
         >
             {/* Main UI Content */}
