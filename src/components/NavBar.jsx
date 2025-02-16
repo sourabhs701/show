@@ -106,7 +106,9 @@ const NavBar = () => {
     return (
         <motion.div
             className={cn(
-                "flex flex-col items-center justify-center fixed top-1 w-full z-50",
+                "flex flex-col items-center justify-center fixed top-0 w-full z-50",
+                " lg:bg-transparent lg:dark:bg-transparent lg:backdrop-blur-none",
+                "shadow-sm dark:shadow-gray-800/20 lg:shadow-none"
             )}
             animate={{
                 padding: isScrolled ? "0.5rem 0" : "1rem 0",

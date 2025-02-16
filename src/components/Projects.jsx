@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import { useTheme } from "next-themes";
 import { projectsDocumentation } from "@/data/projects-documentation";
+import { motion } from "framer-motion";
 
 export function Projects() {
     const [selectedProject, setSelectedProject] = useState(null);
@@ -28,33 +29,38 @@ export function Projects() {
     }));
 
     return (
-        <section className="section-padding container mx-auto h-screen">
-            <div className="section-container">
-                <div className="space-y-4 container mx-auto">
-                    <div className="space-y-4 mb-16 container mx-auto">
-                        <LineShadowText
-                            className="italic text-6xl font-bold text-gray-700 dark:text-gray-200"
-                            shadowColor={shadowColor}
-                        >
-                            Projects
-                        </LineShadowText>
-                        <p className="text-gray-500 dark:text-gray-400 text-lg max-w-5xl">
-                            <span className="text-2xl">योगः कर्मसु कौशलम्</span> |
-                            Excellence in action is yoga.
-                        </p>
-                    </div>
+        <section className="container mx-auto px-4 py-8 sm:py-24">
+            <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
+                {/* Header Section */}
+                <div className="space-y-4 sm:space-y-8 mb-8 sm:mb-12">
+                    <LineShadowText
+                        className="italic text-4xl sm:text-6xl font-bold text-gray-700 dark:text-gray-200"
+                        shadowColor={shadowColor}
+                    >
+                        Projects
+                    </LineShadowText>
+                    <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-3xl">
+                        <span className="text-xl sm:text-2xl">योगः कर्मसु कौशलम्</span> |
+                        Excellence in action is yoga.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Projects Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {projects.map((project) => (
-                        <div
+                        <motion.div
                             key={project.id}
                             onClick={() => setSelectedProject(project)}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            whileHover={{ scale: 1.02 }}
+                            className="h-full"
                         >
                             <Card className={cn(
                                 "group h-full",
-                                "cursor-pointer overflow-hidden rounded-xl border-0",
-                                "shadow-lg shadow-gray-500/20 dark:shadow-gray-400/20"
+                                "cursor-pointer overflow-hidden rounded-3xl border-0",
+                                "shadow-lg shadow-gray-500/20 dark:shadow-gray-400/20",
+                                " backdrop-blur-sm"
                             )}>
                                 <div className="aspect-video relative overflow-hidden">
                                     <img
@@ -64,31 +70,31 @@ export function Projects() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </div>
-                                <div className="p-5 space-y-3">
-                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 line-clamp-1">
+                                <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                                    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-200 line-clamp-1">
                                         {project.name}
                                     </h3>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+                                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 line-clamp-2">
                                         {project.description}
                                     </p>
                                     <div className="flex flex-wrap gap-2">
                                         {project.tech_stack?.slice(0, 3).map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400"
+                                                className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400"
                                             >
                                                 {tech}
                                             </span>
                                         ))}
                                         {project.tech_stack?.length > 3 && (
-                                            <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400">
+                                            <span className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400">
                                                 +{project.tech_stack.length - 3}
                                             </span>
                                         )}
                                     </div>
                                 </div>
                             </Card>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
