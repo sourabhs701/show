@@ -15,7 +15,7 @@ export function ProjectModal({ project, onClose }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-md"
             onClick={onClose}
         >
             <motion.div
@@ -23,7 +23,7 @@ export function ProjectModal({ project, onClose }) {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.95, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-6xl h-[90vh] bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden"
+                className="relative w-full max-w-6xl h-[90vh] bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800"
             >
                 {/* Hero Section */}
                 <div className="relative h-64 overflow-hidden">
@@ -32,7 +32,7 @@ export function ProjectModal({ project, onClose }) {
                         alt={project.name}
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
                     <div className="absolute bottom-0 left-0 p-8 space-y-2">
                         <h2 className="text-4xl font-bold text-white">
@@ -45,27 +45,26 @@ export function ProjectModal({ project, onClose }) {
 
                     <button
                         onClick={onClose}
-                        className="absolute top-4 right-4 p-2 rounded-full bg-black/20 hover:bg-black/40 transition-colors"
+                        className="absolute top-4 right-4 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-colors"
                     >
-                        <X className="w-6 h-6 text-white" />
+                        <X className="w-6 h-6" />
                     </button>
                 </div>
 
                 {/* Content */}
-                <ScrollArea className="h-[calc(90vh-16rem)] p-6">
-                    <Tabs defaultValue="overview" className="space-y-6">
-                        <TabsList className="grid w-full grid-cols-4 lg:w-[400px] bg-gray-100/80 dark:bg-gray-800/80">
-                            <TabsTrigger value="overview">Overview</TabsTrigger>
-                            <TabsTrigger value="features">Features</TabsTrigger>
-                            <TabsTrigger value="technical">Technical</TabsTrigger>
-                            <TabsTrigger value="journey">Journey</TabsTrigger>
-                        </TabsList>
-
+                <Tabs defaultValue="overview" className="space-y-4">
+                    <TabsList className="grid w-full grid-cols-4 lg:w-[400px] mx-5 mt-4 bg-transparent">
+                        <TabsTrigger value="overview">Overview</TabsTrigger>
+                        <TabsTrigger value="features">Features</TabsTrigger>
+                        <TabsTrigger value="technical">Technical</TabsTrigger>
+                        <TabsTrigger value="journey">Journey</TabsTrigger>
+                    </TabsList>
+                    <ScrollArea className="h-[calc(90vh-16rem-4rem)] px-8 py-6">
                         {/* Overview Tab */}
-                        <TabsContent value="overview" className="space-y-6">
-                            <div className="space-y-4 text-gray-600 dark:text-gray-400">
+                        <TabsContent value="overview" className="space-y-8">
+                            <div className="space-y-6 text-gray-700 dark:text-gray-300">
                                 {(project.highlights).map((text, idx) => (
-                                    <p key={idx} className="leading-relaxed">
+                                    <p key={idx} className="leading-relaxed text-lg">
                                         {text}
                                     </p>
                                 ))}
@@ -76,7 +75,7 @@ export function ProjectModal({ project, onClose }) {
                                     <Badge
                                         key={tech}
                                         variant="outline"
-                                        className="px-3 py-1 text-sm font-medium bg-gray-100/50 dark:bg-gray-800/50"
+                                        className="px-3 py-1.5 text-sm font-medium border-gray-200 dark:border-gray-700"
                                     >
                                         {tech}
                                     </Badge>
@@ -85,33 +84,25 @@ export function ProjectModal({ project, onClose }) {
                         </TabsContent>
 
                         {/* Features Tab */}
-                        <TabsContent value="features" className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <TabsContent value="features" className="space-y-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {projectDoc?.key_features?.map((feature, idx) => (
                                     <div
                                         key={idx}
-                                        className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50"
+                                        className="space-y-3"
                                     >
-                                        <div className="flex items-start gap-4">
-                                            {feature.icon && (
-                                                <div className="p-2 rounded-lg bg-primary/10">
-                                                    {/* Replace with your icon component */}
-                                                    <span className="text-primary">{feature.icon}</span>
-                                                </div>
-                                            )}
-                                            <div className="space-y-2">
-                                                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                                                    {feature.title}
-                                                </h3>
-                                                <p className="text-gray-600 dark:text-gray-400">
-                                                    {feature.description}
+                                        <div className="space-y-2">
+                                            <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100">
+                                                {feature.title}
+                                            </h3>
+                                            <p className="text-gray-600 dark:text-gray-400 text-lg">
+                                                {feature.description}
+                                            </p>
+                                            {feature.metrics && (
+                                                <p className="text-sm text-orange-500">
+                                                    {feature.metrics}
                                                 </p>
-                                                {feature.metrics && (
-                                                    <p className="text-sm text-primary/80">
-                                                        {feature.metrics}
-                                                    </p>
-                                                )}
-                                            </div>
+                                            )}
                                         </div>
                                     </div>
                                 ))}
@@ -119,27 +110,22 @@ export function ProjectModal({ project, onClose }) {
                         </TabsContent>
 
                         {/* Technical Tab */}
-
-
-                        <TabsContent value="technical" className="space-y-8">
-                            <div className="space-y-6">
-                                <div className="space-y-4">
-                                    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                        <TabsContent value="technical" className="space-y-12">
+                            <div className="space-y-8">
+                                <div className="space-y-6">
+                                    <h3 className="text-2xl font-medium text-gray-900 dark:text-gray-100">
                                         Architecture
                                     </h3>
-                                    <div className="grid md:grid-cols-2 gap-4">
+                                    <div className="grid md:grid-cols-2 gap-8">
                                         {technicalData.map((item, idx) => (
-                                            <div
-                                                key={idx}
-                                                className="p-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50"
-                                            >
-                                                <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">
+                                            <div key={idx} className="space-y-3">
+                                                <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100">
                                                     {item.section}
                                                 </h4>
-                                                <ul className="space-y-1 text-gray-600 dark:text-gray-400">
+                                                <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                                                     {item.details.map((detail, dIdx) => (
-                                                        <li key={dIdx} className="text-sm">
-                                                            • {detail}
+                                                        <li key={dIdx} className="text-lg">
+                                                            {detail}
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -149,20 +135,17 @@ export function ProjectModal({ project, onClose }) {
                                 </div>
 
                                 {projectDoc?.technical?.performance_metrics && (
-                                    <div className="space-y-4">
-                                        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                                    <div className="space-y-6">
+                                        <h3 className="text-2xl font-medium text-gray-900 dark:text-gray-100">
                                             Performance
                                         </h3>
-                                        <div className="grid gap-4 md:grid-cols-2">
+                                        <div className="grid gap-8 md:grid-cols-2">
                                             {Object.entries(projectDoc.technical.performance_metrics).map(([key, value]) => (
-                                                <div
-                                                    key={key}
-                                                    className="p-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50"
-                                                >
-                                                    <div className="font-medium text-gray-900 dark:text-gray-100">
+                                                <div key={key} className="space-y-1">
+                                                    <div className="text-lg font-medium text-gray-900 dark:text-gray-100">
                                                         {key.replace(/_/g, ' ')}
                                                     </div>
-                                                    <div className="text-primary/80 text-sm">
+                                                    <div className="text-orange-500">
                                                         {value}
                                                     </div>
                                                 </div>
@@ -173,20 +156,18 @@ export function ProjectModal({ project, onClose }) {
                             </div>
                         </TabsContent>
 
-
                         {/* Journey Tab */}
-                        <TabsContent value="journey" className="space-y-6">
-                            <div className="relative border-l border-gray-200 dark:border-gray-800 ml-4 pl-8 space-y-8">
+                        <TabsContent value="journey" className="space-y-12">
+                            <div className="space-y-12">
                                 {projectDoc?.development_journey?.map((phase, idx) => (
-                                    <div key={idx} className="relative">
-                                        <div className="absolute w-3 h-3 bg-gray-200 rounded-full -left-[22px] top-1.5 dark:bg-gray-800" />
+                                    <div key={idx} className="space-y-2">
                                         <time className="text-sm text-gray-500 dark:text-gray-400">
                                             {phase.duration}
                                         </time>
-                                        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-1">
+                                        <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100">
                                             {phase.phase}
                                         </h3>
-                                        <p className="text-gray-600 dark:text-gray-400">
+                                        <p className="text-lg text-gray-600 dark:text-gray-400">
                                             {phase.description}
                                         </p>
                                     </div>
@@ -194,15 +175,15 @@ export function ProjectModal({ project, onClose }) {
                             </div>
 
                             {projectDoc?.lessons_learned && (
-                                <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50">
-                                    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                                <div className="space-y-6">
+                                    <h3 className="text-2xl font-medium text-gray-900 dark:text-gray-100">
                                         Key Learnings
                                     </h3>
-                                    <ul className="space-y-3 pl-4">
+                                    <ul className="space-y-4">
                                         {projectDoc.lessons_learned.map((lesson, idx) => (
                                             <li
                                                 key={idx}
-                                                className="relative pl-6 text-gray-600 dark:text-gray-400 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-primary"
+                                                className="text-lg text-gray-600 dark:text-gray-400"
                                             >
                                                 {lesson}
                                             </li>
@@ -211,16 +192,16 @@ export function ProjectModal({ project, onClose }) {
                                 </div>
                             )}
                         </TabsContent>
-                    </Tabs>
-                </ScrollArea>
+                    </ScrollArea>
+                </Tabs>
 
                 {/* Footer */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white dark:from-gray-900 via-white/90 dark:via-gray-900/90">
+                <div className="sticky bottom-0 right-0 p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
                     <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition-colors"
                     >
                         View Project <ExternalLink className="w-4 h-4" />
                     </a>
