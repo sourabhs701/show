@@ -40,7 +40,7 @@ const Hero = () => {
     };
 
     return (
-        <ScrollSection className="mt-32 container mx-auto px-4">
+        <ScrollSection className="mt-40 container mx-auto px-4">
             <MagicCard
                 className="cursor-pointer flex-col rounded-3xl max-w-7xl mx-auto"
                 gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}

@@ -25,7 +25,7 @@ export function AboutMe() {
     const theme = useTheme();
     const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
     return (
-        <section className="pt-16 container mx-auto px-4">
+        <section className=" container mx-auto px-4">
             <div className="max-w-7xl mx-auto space-y-24">
                 <div className="space-y-8">
                     <LineShadowText
