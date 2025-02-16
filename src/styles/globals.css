@@ -1,1 +1,32 @@
- 
+/* Add these styles to your globals.css */
+.timeline-card-content {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform;
+}
+
+.timeline-item-title {
+    transition: color 0.3s ease-in-out;
+}
+
+.timeline-vertical-circle {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Add these global styles */
+.section-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-padding {
+  @apply py-32;
+}
+
+.section-title {
+  @apply text-5xl md:text-6xl font-bold;
+}
+
+.section-description {
+  @apply text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl;
+} 

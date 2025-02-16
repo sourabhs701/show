@@ -11,6 +11,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 
 import { cn } from "@/lib/utils";
+import { useScroll } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 
 
@@ -90,8 +93,23 @@ const DATA = {
 };
 
 const NavBar = () => {
+    const { scrollY } = useScroll();
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        return scrollY.onChange(() => setIsScrolled(scrollY.get() > 50));
+    }, [scrollY]);
+
     return (
-        <div className="flex  flex-col items-center justify-center fixed top-1 w-full  z-50">
+        <motion.div
+            className={cn(
+                "flex flex-col items-center justify-center fixed top-1 w-full z-50",
+            )}
+            animate={{
+                padding: isScrolled ? "0.5rem 0" : "1rem 0",
+            }}
+            transition={{ duration: 0.2 }}
+        >
             <TooltipProvider>
                 <Dock direction="middle">
                     {DATA.navbar.map((item) => (
@@ -150,7 +168,7 @@ const NavBar = () => {
                     </DockIcon>
                 </Dock>
             </TooltipProvider>
-        </div>
+        </motion.div>
     );
 }
 

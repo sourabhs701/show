@@ -5,6 +5,8 @@ import { SiReact, SiMongodb, SiNodedotjs, SiAmazons3, SiGithub, SiPython, SiJava
 import { cn } from "@/lib/utils";
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import { useTheme } from "next-themes";
+import { ScrollCard } from "@/components/shared/ScrollCard";
+
 const technologies = [
     { icon: SiReact, name: "React", color: "#61DAFB", level: "Advanced" },
     { icon: SiMongodb, name: "MongoDB", color: "#47A248", level: "Intermediate" },
@@ -85,20 +87,23 @@ export function SkillsCard() {
                                 Core Technologies
                             </h3>
                             <div className="grid grid-cols-2 gap-4">
-                                {technologies.map(({ icon: Icon, name, color, level }, index) => (
-                                    <motion.div
-                                        key={name}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className="flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-gray-800/50"
-                                    >
-                                        <Icon className="w-8 h-8" style={{ color }} />
-                                        <div>
-                                            <p className="font-medium text-gray-800 dark:text-gray-200">{name}</p>
-                                            <p className="text-sm text-gray-600 dark:text-gray-400">{level}</p>
-                                        </div>
-                                    </motion.div>
+                                {technologies.map((tech, index) => (
+                                    <ScrollCard key={tech.name} delay={index}>
+                                        <motion.div className="tech-card">
+                                            <motion.div
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: index * 0.1 }}
+                                                className="flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-gray-800/50"
+                                            >
+                                                <tech.icon className="w-8 h-8" style={{ color: tech.color }} />
+                                                <div>
+                                                    <p className="font-medium text-gray-800 dark:text-gray-200">{tech.name}</p>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-400">{tech.level}</p>
+                                                </div>
+                                            </motion.div>
+                                        </motion.div>
+                                    </ScrollCard>
                                 ))}
                             </div>
                         </CardContent>

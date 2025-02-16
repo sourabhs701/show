@@ -255,7 +255,7 @@
 export const projectsDocumentation = {
   1: {
     title: "MakeThumb.com",
-    hero: "/projects/girlrun1.gif",
+    hero: "/projects/tanji.gif",
     summary: "AI-powered resume-to-portfolio conversion platform",
     highlights: [
       "Serves 15k+ users globally with 99.99% uptime.",
@@ -391,6 +391,98 @@ export const projectsDocumentation = {
         duration: "2023 Q2",
         description: "Featured in VS Code newsletter",
       },
+    ],
+  },
+  3: {
+    title: "ChatWithThumb",
+    hero: "/projects/computer.gif",
+    summary:
+      "Real-time chat application with enhanced interactivity and scalability",
+    highlights: [
+      "Ensures seamless bidirectional communication with Socket.IO.",
+      "Optimized WebSocket implementation, improving reliability and scalability by 30%.",
+      "Introduced typing indicators and read receipts, enhancing user engagement by 40%.",
+      "Implemented server load balancing for uninterrupted service during peak hours.",
+    ],
+    tech_stack: [
+      "React 18 + TypeScript",
+      "Node.js 20 + Express.js",
+      "MongoDB Atlas M30 Cluster",
+      "Socket.IO for real-time messaging",
+    ],
+    key_features: [
+      {
+        icon: "MessageCircle",
+        title: "Real-Time Messaging",
+        description: "Low-latency WebSocket-powered chat with instant updates.",
+      },
+      {
+        icon: "Eye",
+        title: "Read Receipts",
+        description: "Tracks message status for improved user experience.",
+      },
+      {
+        icon: "Loader2",
+        title: "Typing Indicators",
+        description: "Displays when users are typing for better engagement.",
+      },
+      {
+        icon: "Server",
+        title: "Scalability",
+        description:
+          "Load balancing and horizontal scaling for peak efficiency.",
+      },
+    ],
+    technical: {
+      architecture: [
+        {
+          section: "Frontend",
+          details: ["React 18 + TypeScript", "Tailwind CSS for styling"],
+        },
+        {
+          section: "Backend",
+          details: [
+            "Node.js 20 + Express.js",
+            "Socket.IO for real-time communication",
+          ],
+        },
+        {
+          section: "Database",
+          details: ["MongoDB Atlas M30 Cluster"],
+        },
+      ],
+      performance_metrics: {
+        "Message Delivery Time": "Under 100ms",
+        "Server Uptime": "99.98%",
+        "Concurrent Users Supported": "10,000+",
+      },
+      security_measures: [
+        "End-to-end encryption for private chats",
+        "Rate limiting to prevent DDoS attacks",
+        "Token-based authentication for secure sessions",
+      ],
+    },
+    development_journey: [
+      {
+        phase: "Prototype",
+        duration: "2023 Q1",
+        description: "Built core messaging functionality with Socket.IO.",
+      },
+      {
+        phase: "Beta Release",
+        duration: "2023 Q3",
+        description: "Added typing indicators and read receipts.",
+      },
+      {
+        phase: "Optimization",
+        duration: "2024 Q1",
+        description:
+          "Improved scalability and performance for high-traffic handling.",
+      },
+    ],
+    lessons_learned: [
+      "Optimized WebSocket events reduced server load by 25%.",
+      "Real-time debugging tools improved response times for bug fixes.",
     ],
   },
 };
